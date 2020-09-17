@@ -23,6 +23,8 @@ import org.apache.dubbo.samples.basic.api.DemoService;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.Scanner;
+
 public class BasicConsumer {
 
     public static void main(String[] args) {
@@ -32,6 +34,12 @@ public class BasicConsumer {
         String hello = demoService.sayHello("world");
         System.out.println(hello);
 
+        Scanner scanner = new Scanner(System.in);
+        while(true){
+            System.out.println("please input message:");
+            String message = scanner.nextLine();
+            demoService.sayHello(message);
+        }
 //        System.out.println("start void test...");
 //        demoService.testVoid();
     }
